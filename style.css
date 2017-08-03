@@ -1,0 +1,16 @@
+ body {
+  width: 100%;
+  font-family: 'Righteous', cursive;
+
+  justify-content: center;
+} 
+.svg-box {
+    display: flex;  
+    justify-content: center;
+  
+}
+
+.svg-box-content {
+    display: flex-item;
+  
+}

@@ -27,7 +27,7 @@ input {
     left: 24px;
 }
 
- @media all and (min-width:769px) and (max-width: 800px) {
+ @media all and (min-width:321px) and (max-width: 768px) {
     input {
     font-family: 'Righteous', cursive;
     font-size: 4em;

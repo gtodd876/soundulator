@@ -28,11 +28,12 @@
 input {
     position: absolute;
     top: 105px;
+    left: 168px;
     font-family: 'Righteous', cursive;
     font-size: 4em;
     border: 0;
     background-color: #D6E0E2;
-    width: 70%;
+    /* width: 100%; */
     max-width: 295px;
     height: 10%;
     min-height: 90px;

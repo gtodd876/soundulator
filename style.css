@@ -62,8 +62,7 @@ input {
 }
 
 @supports (-moz-appearance:none) and (display:contents) {
-    input { 
-        
+    input {         
         top: 15%;
         left: 4%;
     } 

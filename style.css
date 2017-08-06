@@ -43,5 +43,7 @@ input {
 @media (min-width: 50px) and (max-width: 480) {
     input {
         max-width: 200px;
+        top: 90px;
+        left: 20px;
     }
 }

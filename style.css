@@ -2,19 +2,24 @@
   width: 100%;
   font-family: 'Righteous', cursive;
 
-  justify-content: center;
+ 
 } 
 
 .svg-box {
-    display: flex;  
+    /* display: flex;   */
     width: 100%;
-    justify-content: center;
-    position: relative;
+   
+    border: 2px solid red;
+  
 }
 
-.svg-box-content {
-    display: flex-item;
-  
+svg {
+    border: 2px solid blue;
+    /* position: absolute; */
+    /* justify-content: center; */
+    display: flex;
+    position: relative;
+
 }
 
 #Buttons {
@@ -26,18 +31,19 @@
 } */
 
 input {
-    position: absolute;
-    top: 105px;
-    left: 168px;
     font-family: 'Righteous', cursive;
     font-size: 4em;
     border: 0;
     background-color: #D6E0E2;
-    /* width: 100%; */
+    flex: 1;
     max-width: 295px;
-    height: 10%;
-    min-height: 90px;
+    /* height: 10%;
+    min-height: 90px; */
     text-align: right;
+    position: absolute; 
+    top: 14%;
+    left: 3.5%; 
+
 }
 
 @media (min-width: 321px) and (max-width: 480) {
@@ -45,6 +51,16 @@ input {
         max-width: 165px;
         top: 70px;
         left: 5px;
+<<<<<<< HEAD
+    }
+}
+@media (min-width: 50px) and (max-width: 320) {
+    input {
+        max-width: 70px;
+        top: 70px;
+        left: 5px;
+=======
+>>>>>>> HEAD@{1}
     }
 }
 @media (min-width: 50px) and (max-width: 320) {
@@ -54,3 +70,11 @@ input {
         left: 5px;
     }
 }
+
+@supports (-moz-appearance:none) and (display:contents) {
+    input {         
+        top: 15%;
+        left: 4%;
+    } 
+
+} 

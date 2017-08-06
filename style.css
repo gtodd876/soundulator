@@ -56,8 +56,8 @@ input {
 @media (min-width: 50px) and (max-width: 320) {
     input {
         max-width: 70px;
-        top: 10%;
-        left: 5%;
+        top: 20%;
+        left: 8%;
     }
 }
 

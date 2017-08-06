@@ -29,8 +29,8 @@ input {
     left: 24px;; 
 }
 
-@media all and (min-width:750px) and (max-width: 1080px) {
+/* @media all and (min-width:750px) and (max-width: 1080px) {
     input {
         top: 80px;
   }
-}
+} */

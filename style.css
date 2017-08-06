@@ -4,6 +4,7 @@
 
   justify-content: center;
 } 
+
 .svg-box {
     display: flex;  
     justify-content: center;
@@ -13,4 +14,23 @@
 .svg-box-content {
     display: flex-item;
   
+}
+
+#Buttons {
+    cursor: pointer;
+}
+
+/* #output {
+    text-align: right;
+} */
+
+input {
+    position: absolute;
+    top: 105px;
+    font-family: 'Righteous', cursive;
+    font-size: 3em;
+    border: 0;
+    background-color: #D6E0E2;
+    width: 33%;
+    height: 15%;
 }

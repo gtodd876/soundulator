@@ -28,9 +28,10 @@ input {
     position: absolute;
     top: 105px;
     font-family: 'Righteous', cursive;
-    font-size: 3em;
+    font-size: 4em;
     border: 0;
     background-color: #D6E0E2;
-    width: 33%;
-    height: 15%;
+    width: 50%;
+    height: 10%;
+    text-align: right;
 }

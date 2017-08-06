@@ -52,7 +52,7 @@ input {
         left: 5%;
     }
 }
-@media (min-width: 100px) and (max-width: 320) {
+@media (min-width: 100px) and (max-width: 640px) {
     input {
         top: 20%;
         left: 40%;

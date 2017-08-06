@@ -8,7 +8,7 @@
 .svg-box {
     display: flex;  
     justify-content: center;
-  
+    position: relative;
 }
 
 .svg-box-content {

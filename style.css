@@ -8,7 +8,6 @@
 }
 
 svg {
-    border: 2px solid blue;
     display: flex;
     position: relative;
 }
@@ -26,11 +25,19 @@ input {
     text-align: right;
     position: absolute;  
     top: 105px;
-    left: 24px;; 
+    left: 24px;
 }
 
- @media all and (min-width:750px) and (max-width: 1280px) {
+ @media all and (min-width:750px) and (max-width: 1180px) {
     input {
-        top: 10px;
-  }
+    font-family: 'Righteous', cursive;
+    font-size: 4em;
+    border: 0;
+    background-color: #D6E0E2;
+    max-width: 295px;
+    text-align: right;
+    position: absolute;  
+    top: 100px;
+    left: 24px;
+}
 } 

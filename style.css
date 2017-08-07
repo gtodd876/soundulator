@@ -29,14 +29,14 @@ input {
 
  @media all and (min-width:321px) and (max-width: 768px) {
     input {
-    font-family: 'Righteous', cursive;
-    font-size: 4em;
-    border: 0;
-    background-color: #D6E0E2;
-    max-width: 295px;
-    text-align: right;
-    position: absolute;  
-    top: 95px;
-    left: 24px;
-}
+        font-family: 'Righteous', cursive;
+        font-size: 4em;
+        border: 0;
+        background-color: #D6E0E2;
+        max-width: 295px;
+        text-align: right;
+        position: absolute;  
+        top: 95px;
+        left: 24px;
+    }
 } 

@@ -1,5 +1,5 @@
 
-StartAudioContext(Tone.context, "#Buttons");
+
 
 var calc = {
   subtotal: 0,
@@ -58,6 +58,9 @@ function randomNote() {
 }
 
 $(document).ready(function () {
+  StartAudioContext(Tone.context, '#Buttons').then(function () {
+
+ 
   $("#Op1-BTN").click(function () {
     scale = notes.pentatonic;
     $("#Star").attr("fill", "#73416C");
@@ -231,4 +234,5 @@ $(document).ready(function () {
     } 
 
   });
+  }); // start audio context
 }); //document ready 

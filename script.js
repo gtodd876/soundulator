@@ -1,3 +1,6 @@
+
+StartAudioContext(Tone.context, "#Buttons");
+
 var calc = {
   subtotal: 0,
   last_value: null,

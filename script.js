@@ -1,9 +1,6 @@
-
-
-
 var calc = {
   subtotal: 0,
-  last_value: null,
+  last_value: 0,
   last_operator: "",
   total: 0
 };
@@ -60,7 +57,6 @@ function randomNote() {
 $(document).ready(function () {
   StartAudioContext(Tone.context, '#Buttons').then(function () {
 
- 
   $("#Op1-BTN").click(function () {
     scale = notes.pentatonic;
     $("#Star").attr("fill", "#73416C");
@@ -82,6 +78,7 @@ $(document).ready(function () {
     $("#btn-option4-shape").animate({ opacity: 0.5 }, 1500);
   });
   $("#Decimal-BTN").click(function () {
+    console.log($("#digits").text().indexOf('.'));
     if ($("#digits").text().indexOf('.') === -1) {
       $("#digits").val($("#digits").val() + '.');
     }
@@ -94,58 +91,60 @@ $(document).ready(function () {
     
   });
   $("#0-BTN").click(function () {
-    var note = randomNote();
+    let note = randomNote();
     synth.triggerAttackRelease(scale[note], "8n");
-    $("#digits").val($("#digits").val() + '0');
+    $("#digits").val($("#digits").val() + 0);
   });
   $("#1-BTN").click(function () {
-    var note = randomNote();
+    let note = randomNote();
     synth.triggerAttackRelease(scale[note], "8n");
-    $("#digits").val($("#digits").val() + '1');
+    $("#digits").val($("#digits").val() + 1);
   });
   $("#2-BTN").click(function () {
-    var note = randomNote();
+    let note = randomNote();
     synth.triggerAttackRelease(scale[note], "8n");
-    $("#digits").val($("#digits").val() + '2');
+    $("#digits").val($("#digits").val() + 2);
   });
   $("#3-BTN").click(function () {
-    var note = randomNote();
+    let note = randomNote();
     synth.triggerAttackRelease(scale[note], "8n");
-    $("#digits").val($("#digits").val() + '3');
+    $("#digits").val($("#digits").val() + 3);
   });
   $("#4-BTN").click(function () {
-    var note = randomNote();
+    let note = randomNote();
     synth.triggerAttackRelease(scale[note], "8n");
-    $("#digits").val($("#digits").val() + '4');
+    $("#digits").val($("#digits").val() + 4);
   });
   $("#5-BTN").click(function () {
-    var note = randomNote();
+    let note = randomNote();
     synth.triggerAttackRelease(scale[note], "8n");
-    $("#digits").val($("#digits").val() + '5');
+    $("#digits").val($("#digits").val() + 5);
   });
   $("#6-BTN").click(function () {
-    var note = randomNote();
+    let note = randomNote();
     synth.triggerAttackRelease(scale[note], "8n");
-    $("#digits").val($("#digits").val() + '6');
+    $("#digits").val($("#digits").val() + 6);
   });
   $("#7-BTN").click(function () {
-    var note = randomNote();
+    let note = randomNote();
     synth.triggerAttackRelease(scale[note], "8n");
-    $("#digits").val($("#digits").val() + '7');
+    $("#digits").val($("#digits").val() + 7);
   });
   $("#8-BTN").click(function () {
-    var note = randomNote();
+    let note = randomNote();
     synth.triggerAttackRelease(scale[note], "8n");
-    $("#digits").val($("#digits").val() + '8');
+    $("#digits").val($("#digits").val() + 8);
   });
   $("#9-BTN").click(function () {
-    var note = randomNote();
+    let note = randomNote();
     synth.triggerAttackRelease(scale[note], "8n");
-    $("#digits").val($("#digits").val() + '9');
+    $("#digits").val($("#digits").val() + 9);
   });
   $("#Clear-BTN").click(function () {
     Tone.Transport.stop();
     calc.subtotal = 0;
+    calc.last_value = 0;
+
     $("#digits").val("");
     $("#Star").attr("fill", "#FFFFFF");
     $("#Star").animate({ opacity: 1 }, 1000);
@@ -157,29 +156,37 @@ $(document).ready(function () {
     $("#btn-option4-shape").animate({ opacity: 1 }, 1000);
  
   });
-  $("#Plus-BTN").click(function () {
-    calc.last_value = $("#digits").val();
-    calc.subtotal += parseInt(calc.last_value);
-    $("#digits").val("");
-    calc.last_operator = "+";
+  $("#Plus-BTN").click(function () { 
+      calc.last_value = $("#digits").val();
+      if (calc.last_value !== "") {
+        calc.subtotal = new BigNumber(calc.last_value);
+        $("#digits").val("");
+        calc.last_operator = "+";
+      } 
   });
   $("#Minus-BTN").click(function () {
-    calc.last_value = $("#digits").val();
-    calc.subtotal = parseInt(calc.last_value);
-    $("#digits").val("");
-    calc.last_operator = "-";
+      calc.last_value = $("#digits").val();
+      if (calc.last_value !== "") {       
+        calc.subtotal = parseInt(calc.last_value);
+        $("#digits").val("");
+        calc.last_operator = "-";
+      }
   });
   $("#Multiply-BTN").click(function () {
-    calc.last_value = $("#digits").val();
-    calc.subtotal = parseInt(calc.last_value);
-    $("#digits").val("");
-    calc.last_operator = "*";
+      calc.last_value = $("#digits").val();  
+      if (calc.last_value !== "") {
+        calc.subtotal = parseInt(calc.last_value);
+        $("#digits").val("");
+        calc.last_operator = "*";
+      }
   });
   $("#Divide-BTN").click(function () {
-    calc.last_value = $("#digits").val();
-    calc.subtotal = parseInt(calc.last_value);
-    $("#digits").val("");
-    calc.last_operator = "/";
+      calc.last_value = $("#digits").val();
+      if (calc.last_value !== "") {
+        calc.subtotal = parseInt(calc.last_value);
+        $("#digits").val("");
+        calc.last_operator = "/";
+      }
   });
   $("#Percent-BTN").click(function () {
     calc.last_value = (parseInt($("#digits").val()) / 100);
@@ -198,37 +205,24 @@ $(document).ready(function () {
   });
   $("#Equals-BTN").click(function () {
     Tone.Transport.start("+0.1");
-    // synth.triggerAttackRelease("C7", "16n");
-    // synth.triggerAttackRelease("E3", "32n");
-    // synth.triggerAttackRelease("G3", "32n");
-    // synth.triggerAttackRelease("A3", "32n");
-    // synth.triggerAttackRelease("C4", "32n");
-    // synth.triggerAttackRelease("E4", "32n");
-    // synth.triggerAttackRelease("G4", "32n");
-    // synth.triggerAttackRelease("A4", "32n");
-    calc.last_value = parseInt($("#digits").val());
-    calc.subtotal = parseInt(calc.subtotal);
+    calc.last_value = new BigNumber($("#digits").val());
+    calc.subtotal = new BigNumber(calc.subtotal);
     $("#digits").val(""); 
     switch (calc.last_operator) {
       case "+":
-        calc.subtotal += calc.last_value;
-        $("#digits").append(calc.subtotal);
+        calc.subtotal = calc.last_value.plus(calc.subtotal);
         $("#digits").val($("#digits").val() + calc.subtotal);
         break;
       case "-":
-        console.log(calc.subtotal, calc.last_value)
-        calc.subtotal = calc.subtotal - calc.last_value;
-        $("#digits").append(calc.subtotal);
+        calc.subtotal = calc.subtotal.minus(calc.last_value);
         $("#digits").val($("#digits").val() + calc.subtotal);
         break;
       case "*":
-        calc.subtotal *= calc.last_value;
-        $("#digits").append(calc.subtotal);
+        calc.subtotal = calc.last_value.times(calc.subtotal);
         $("#digits").val($("#digits").val() + calc.subtotal);
         break;
       case "/":
-        calc.subtotal /= calc.last_value;
-        $("#digits").append(calc.subtotal);
+        calc.subtotal = calc.subtotal.dividedBy(calc.last_value);
         $("#digits").val($("#digits").val() + calc.subtotal);
         break;
     } 

@@ -81,6 +81,7 @@ $(document).ready(function () {
     console.log($("#digits").text().indexOf('.'));
     if ($("#digits").text().indexOf('.') === -1) {
       $("#digits").val($("#digits").val() + '.');
+      console.log($("#digits").val());
     }
   });
   $("#On-BTN").click(function () {
@@ -109,11 +110,15 @@ $(document).ready(function () {
     let note = randomNote();
     synth.triggerAttackRelease(scale[note], "8n");
     $("#digits").val($("#digits").val() + 3);
+    console.log($("#digits").val());
+    console.log(calc.subtotal);
+
   });
   $("#4-BTN").click(function () {
     let note = randomNote();
     synth.triggerAttackRelease(scale[note], "8n");
     $("#digits").val($("#digits").val() + 4);
+    console.log($("#digits").val());
   });
   $("#5-BTN").click(function () {
     let note = randomNote();
@@ -134,6 +139,7 @@ $(document).ready(function () {
     let note = randomNote();
     synth.triggerAttackRelease(scale[note], "8n");
     $("#digits").val($("#digits").val() + 8);
+    console.log($("#digits").val());
   });
   $("#9-BTN").click(function () {
     let note = randomNote();
@@ -157,7 +163,7 @@ $(document).ready(function () {
  
   });
   $("#Plus-BTN").click(function () { 
-      calc.last_value = $("#digits").val();
+      calc.last_value = new BigNumber($("#digits").val());
       if (calc.last_value !== "") {
         calc.subtotal = new BigNumber(calc.last_value);
         $("#digits").val("");
@@ -165,11 +171,14 @@ $(document).ready(function () {
       } 
   });
   $("#Minus-BTN").click(function () {
-      calc.last_value = $("#digits").val();
+    console.log(calc.last_operator);  
+    calc.last_value = new BigNumber($("#digits").val());
+      console.log(calc.last_operator);
       if (calc.last_value !== "") {       
         calc.subtotal = parseInt(calc.last_value);
         $("#digits").val("");
         calc.last_operator = "-";
+        
       }
   });
   $("#Multiply-BTN").click(function () {
@@ -205,8 +214,9 @@ $(document).ready(function () {
   });
   $("#Equals-BTN").click(function () {
     Tone.Transport.start("+0.1");
+    calc.subtotal = new BigNumber(calc.last_value);
     calc.last_value = new BigNumber($("#digits").val());
-    calc.subtotal = new BigNumber(calc.subtotal);
+    console.log(calc.subtotal, calc.last_value);
     $("#digits").val(""); 
     switch (calc.last_operator) {
       case "+":
